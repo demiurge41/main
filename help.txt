@@ -1,5 +1,0 @@
-1) sudo apt update -(обновить облако)
-2) sudo apt install python3.12-venv -(скачать python3.12-venv)
-3) python3 -m venv venv -(создание виртуальной среды)
-4) source venv/bin/activate 
-deactivate
