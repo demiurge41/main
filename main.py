@@ -1,4 +1,5 @@
 import flet as ft
+import datetime
 
 def main(page: ft.Page):
     page.title = 'Моё первое приложение!'
@@ -16,12 +17,18 @@ def main(page: ft.Page):
 
         if name:
             text_hello.color=None
-            text_hello.value = f'Hello {name}'
-            name_input.value = ""
 
-            geeting_history.append(name)
+            now = datetime.datetime.now()
+            text_time = now.strftime('%Y:%m:%d - %H:%M:%S')
+            
+            
+            text_hello.value = f'{text_time} - Hello {name}'
+            name_input.value = ""
+            
+
+            geeting_history.append(text_hello.value)
             print(geeting_history)
-            hisrory_text.value = 'История приветствий:\n' + ', \n'.join(geeting_history)
+            hisrory_text.value = 'История приветствий:\n' + '\n'.join(geeting_history)
 
         
         else:
