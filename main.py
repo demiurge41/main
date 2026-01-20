@@ -36,6 +36,18 @@ def main(page: ft.Page):
             text_hello.color=ft.Colors.RED_900
         
 
+    def delete_last(_):
+        if geeting_history:
+            geeting_history.pop()
+            hisrory_text.value = 'История приветствий:\n' + '\n'.join(geeting_history)
+
+        else:
+            hisrory_text.value = 'История пуста!'
+
+    delete_last_button = ft.IconButton(icon=ft.Icons.REMOVE_CIRCLE_ROUNDED, on_click=delete_last)
+    
+
+
     elevated_button = ft.ElevatedButton('send', on_click=text_name, icon=ft.Icons.SEARCH, color=ft.Colors.RED, icon_color=ft.Colors.BLACK)
     
   
@@ -58,7 +70,10 @@ def main(page: ft.Page):
 
     clear_button = ft.IconButton(icon=ft.Icons.DELETE, on_click=clear_hisrory)
 
-    main_obj = ft.Row([name_input, elevated_button, thememode_button, clear_button])
+
+
+
+    main_obj = ft.Row([name_input, elevated_button, thememode_button, clear_button, delete_last_button])
 
     #добавление в страницу
     page.add(text_hello, main_obj, hisrory_text)
